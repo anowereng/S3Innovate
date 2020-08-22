@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LineChartComponent } from './charts/line-chart/line-chart.component';
 import { ChartsModule } from 'ng2-charts';
-
+// Datepicker module
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,9 @@ import { ChartsModule } from 'ng2-charts';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartsModule
+    BrowserAnimationsModule,
+    ChartsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
