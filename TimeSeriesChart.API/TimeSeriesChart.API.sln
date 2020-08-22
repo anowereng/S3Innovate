@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSeriesChart.Web", "TimeSeriesChart.Web\TimeSeriesChart.Web.csproj", "{1E8DDED8-2631-40F9-A4B6-2A7F22462373}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSeriesChart.API", "TimeSeriesChart.API\TimeSeriesChart.API.csproj", "{74F95F86-FCF2-4515-9B8F-E85269FEAE4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1E8DDED8-2631-40F9-A4B6-2A7F22462373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E8DDED8-2631-40F9-A4B6-2A7F22462373}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E8DDED8-2631-40F9-A4B6-2A7F22462373}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E8DDED8-2631-40F9-A4B6-2A7F22462373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74F95F86-FCF2-4515-9B8F-E85269FEAE4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F95F86-FCF2-4515-9B8F-E85269FEAE4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F95F86-FCF2-4515-9B8F-E85269FEAE4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F95F86-FCF2-4515-9B8F-E85269FEAE4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B156BAC3-BF83-488A-A7C6-836520816F7C}
+		SolutionGuid = {B5948811-0F2F-4DC9-B25D-D8700721799D}
 	EndGlobalSection
 EndGlobal

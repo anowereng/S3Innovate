@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TimeSeriesChart.Web
+namespace TimeSeriesChart.API
 {
     public class Program
     {
