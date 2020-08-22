@@ -29,10 +29,6 @@ namespace TimeSeriesChart.API
         {
             services.AddControllers();
 
-            //services.AddSingleton<UserManager<ExtendedIdentityUser>>();
-            //services.AddSingleton<SignInManager<ExtendedIdentityUser>>();
-
-
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
