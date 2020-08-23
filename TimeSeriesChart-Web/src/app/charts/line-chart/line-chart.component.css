@@ -1,5 +1,10 @@
-.chart-wrapper{
+.chart-wrapper, .chartjs-container {
     position: relative;
     height: 40vh;
     max-width:100%;
+    padding-top: 10px;
+}
+
+.container {
+    padding-top: 100px;
 }

@@ -8,6 +8,12 @@ import { ChartsModule } from 'ng2-charts';
 // Datepicker module
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +23,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ChartsModule,
+    ChartsModule,FormsModule,
+    ReactiveFormsModule,
     BsDatepickerModule.forRoot()
   ],
   providers: [],
