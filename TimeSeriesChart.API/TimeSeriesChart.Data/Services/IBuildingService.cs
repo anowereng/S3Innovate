@@ -8,6 +8,6 @@ namespace TimeSeriesChart.Data.services
 {
     public interface IBuildingService
     {
-        IList<Building> GetBuildings();
+        IList<Building> AllBuildings();
     }
 }

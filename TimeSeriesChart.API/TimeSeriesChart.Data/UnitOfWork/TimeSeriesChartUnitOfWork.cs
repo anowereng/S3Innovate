@@ -22,8 +22,8 @@ namespace TimeSeriesChart.Data.UnitOfWork
             _context = new TimeseriesContext(connectionString, migrationAssemblyName);
 
             BuildingRepository = new BuildingRepository(_context);
-            //DataFieldRepository = new StudentRepository(_context);
-            //ObjectItemRepository = new BookIssueRepository(_context);
+            DataFieldRepository = new DataFieldRepository(_context);
+            ObjectItemRepository = new ObjectItemRepository(_context);
             ReadingRepository = new ReadingRepository(_context);
         }
 

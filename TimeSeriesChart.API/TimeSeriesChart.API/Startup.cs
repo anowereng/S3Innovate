@@ -35,16 +35,11 @@ namespace TimeSeriesChart.API
             /*For Repository and services*/
             services.
                      AddTransient<IBuildingRepository, BuildingRepository>().
-                     AddTransient<IReadingService, ReadingService>();
-                     //AddTransient<IStudentRepository, StudentRepository>().
-                     //AddTransient<IStudentService, StudentService>().
-                     //AddTransient<IBookIssueRepository, BookIssueRepository>().
-                     //AddTransient<IBookIssueService, BookIssueService>().
-                     //AddTransient<IBookReturnRepository, BookReturnRepository>().
-                     //AddTransient<IBookReturnService, BookReturnService>().
-                     //AddTransient<IBookFineRepository, BookFineRepository>().
-                     //AddTransient<IBookFineService, BookFineService>();
-
+                     AddTransient<IDataFieldRepository, DataFieldRepository>().
+                     AddTransient<IObjectItemRepository, ObjectItemRepository>().
+                     AddTransient<IBuildingService, BuildingService>().
+                     AddTransient<IDataFieldService, DataFieldService>().
+                     AddTransient<IObjectItemService, ObjectItemService>();
 
             services.AddControllers();
 
@@ -62,7 +57,10 @@ namespace TimeSeriesChart.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            Seed.Initialize().Wait();
+           var connection =   Configuration.GetConnectionString("DefaultConnection");
+            var migrationAssemblyName = typeof(Startup).Assembly.FullName;
+            Seed.Initialize(connection, migrationAssemblyName).Wait();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

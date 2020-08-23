@@ -8,11 +8,9 @@ namespace TimeSeriesChart.API
 {
     public class Seed
     {
-        public static async Task Initialize()
+
+        public static async Task Initialize(string _connectionString, string migrationAssemblyName)
         {
-            var _connectionString = @"Server=Softify-PC2;Database=TimesSeriesDatabase;User Id=sa;Password=007;";
-            var migrationAssemblyName = typeof(Startup).Assembly.FullName;
-            //var connstring = Configuration.GetConnectionString("DefaultConnection");
             var context = new TimeseriesContext(_connectionString, migrationAssemblyName);
 
             context.Database.EnsureCreated();

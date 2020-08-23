@@ -8,8 +8,6 @@ namespace TimeSeriesChart.Data.services
 {
     public interface IReadingService
     {
-        IList<Building> AllBuildings();
-        IList<DataField> AllDataFields();
-        IList<ObjectItem> AllObjectItems();
+        IList<Reading> AllReading();
     }
 }

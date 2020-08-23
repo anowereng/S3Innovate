@@ -10,7 +10,7 @@ using TimeSeriesChart.Data.Contexts;
 namespace TimeSeriesChart.API.Migrations
 {
     [DbContext(typeof(TimeseriesContext))]
-    [Migration("20200823003059_initial")]
+    [Migration("20200823011409_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

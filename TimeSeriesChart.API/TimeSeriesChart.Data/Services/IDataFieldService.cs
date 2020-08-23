@@ -6,8 +6,8 @@ using TimeSeriesChart.Data.Models;
 
 namespace TimeSeriesChart.Data.services
 {
-    public interface IDataField 
+    public interface IDataFieldService
     {
-        IList<DataField> DataFields();
+            IList<DataField> AllDataField();
     }
 }

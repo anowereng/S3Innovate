@@ -8,6 +8,6 @@ namespace TimeSeriesChart.Data.services
 {
     public interface IObjectItemService
     {
-        IList<ObjectItem> ObjectItems();
+        IList<ObjectItem> AllObjectItem();
     }
 }

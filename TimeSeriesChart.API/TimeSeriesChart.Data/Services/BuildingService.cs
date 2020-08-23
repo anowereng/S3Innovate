@@ -9,15 +9,16 @@ namespace TimeSeriesChart.Data.services
 {
     public class BuildingService : IBuildingService
     {
-        private ITimeSeriesChartUnitOfWork _timeseriesUnitOfWork;
-        public BuildingService(ITimeSeriesChartUnitOfWork timeseriesUnitOfWork)
+        private TimeSeriesChartUnitOfWork _timeseriesUnitOfWork;
+        public BuildingService(TimeSeriesChartUnitOfWork timeseriesUnitOfWork)
         {
             _timeseriesUnitOfWork = timeseriesUnitOfWork;
         }
 
-        public IList<Building> GetBuildings()
+        public IList<Building> AllBuildings()
         {
-            throw new NotImplementedException();
+            var result = _timeseriesUnitOfWork.BuildingRepository.GetAll().ToList();
+            return result;
         }
     }
 }

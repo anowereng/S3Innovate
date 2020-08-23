@@ -10,10 +10,10 @@ namespace TimeSeriesChart.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ReadingController : ControllerBase
+    public class BuildingsController : ControllerBase
     {
-        private IReadingService _readingService;
-        public ReadingController(IReadingService readingService) {
+        private IBuildingService _readingService;
+        public BuildingsController(IBuildingService readingService) {
             _readingService = readingService;
         }
 
