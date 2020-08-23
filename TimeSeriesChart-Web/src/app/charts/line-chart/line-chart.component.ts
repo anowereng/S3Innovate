@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ChartService } from 'src/services/chart.service';
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
@@ -9,7 +10,12 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LineChartComponent {
 
-  websiteList: any = ['ItSolutionStuff.com', 'HDTuto.com', 'Nicesnippets.com']
+  websiteList: any = ['ItSolutionStuff.com', 'HDTuto.com', 'Nicesnippets.com'];
+  public buildings: any = [];
+  public datafield: any = [];
+  public objectitem: any = [];
+
+  constructor(private chartservice: ChartService) { this.GetDropdownItem(); }
 
   form = new FormGroup({
     building: new FormControl('', Validators.required),
@@ -19,14 +25,26 @@ export class LineChartComponent {
     dtto: new FormControl('', Validators.required)
   });
 
-  get f() {
-    return this.form.controls;
+  GetDropdownItem() {
+    this.chartservice.GetAllBuildings().subscribe(result => {
+      this.buildings = result;
+      console.log(result);
+    });
+    this.chartservice.GetAllDataField().subscribe(result => {
+      this.datafield = result;
+      console.log(result);
+    });
+    this.chartservice.GetAllObjectItem().subscribe(result => {
+      this.objectitem = result;
+      console.log(result);
+    });
   }
+
 
   submit() {
     console.log(this.form.value);
   }
-  changeWebsite(e) {
+  changeValue(e) {
     console.log(e.target.value);
   }
 
@@ -35,11 +53,7 @@ export class LineChartComponent {
   // tslint:disable-next-line: member-ordering
   lineChartData: ChartDataSets[] = [
     { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product A' },
-    { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product B' },
-    { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product C' },
-    { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product D' },
-    { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product E' },
-    { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product F' }
+    { data: [65, 59, 80, 81, 56, 55, 40, 56, 55, 40], label: 'Product B' }
   ];
 
   // Labels shown on the x-axis

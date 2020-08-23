@@ -4,25 +4,26 @@
       <div class="form-row">
         <div class="col-2">
           <label for="building">Building :</label>
-          <select formControlName="building" class="form-control" (change)="changeWebsite($event)">
-            <option>Choose Building</option>
-            <option *ngFor="let web of websiteList">{{web}}</option>
+          
+          <select formControlName="building" id="building" class="form-control" (change)="changeValue($event)">
+            <option value=""> select buildings </option>
+            <option *ngFor="let c of buildings" [ngValue]="c">{{c.name}}</option>
           </select>
         </div>
 
         <div class="col-2">
           <label for="object">Object :</label>
-          <select formControlName="object" class="form-control" (change)="changeWebsite($event)">
-            <option>Choose Object</option>
-            <option *ngFor="let web of websiteList">{{web}}</option>
+          <select formControlName="object" class="form-control" (change)="changeValue($event)">
+            <option value=""> select object </option>
+            <option *ngFor="let c of objectitem" [ngValue]="c">{{c.name}}</option>
           </select>
         </div>
 
         <div class="col-2">
           <label for="datafield">Data Field :</label>
-          <select formControlName="datafield" class="form-control" (change)="changeWebsite($event)">
-            <option>Choose Data Field</option>
-            <option *ngFor="let web of websiteList">{{web}}</option>
+          <select formControlName="datafield" class="form-control" (change)="changeValue($event)">
+            <option value=""> select datafield </option>
+            <option *ngFor="let c of datafield" [ngValue]="c">{{c.name}}</option>
           </select>
         </div>
 
@@ -59,7 +60,7 @@
       <div class="form-row">
         <div class="col-2">
           <label for="building">Building :</label>
-          <select formControlName="building" class="form-control" (change)="changeWebsite($event)">
+          <select formControlName="building" class="form-control" (change)="changeValue($event)">
             <option>Choose Building</option>
             <option *ngFor="let web of websiteList">{{web}}</option>
           </select>
@@ -68,7 +69,7 @@
 
         <div class="col-2">
           <label for="object">Object :</label>
-          <select formControlName="object" class="form-control" (change)="changeWebsite($event)">
+          <select formControlName="object" class="form-control" (change)="changeValue($event)">
             <option>Choose Object</option>
             <option *ngFor="let web of websiteList">{{web}}</option>
           </select>
@@ -76,7 +77,7 @@
         </div>
         <div class="col-2">
           <label for="datafield">Data Field :</label>
-          <select formControlName="datafield" class="form-control" (change)="changeWebsite($event)">
+          <select formControlName="datafield" class="form-control" (change)="changeValue($event)">
             <option>Choose Data Field</option>
             <option *ngFor="let web of websiteList">{{web}}</option>
           </select>
@@ -113,7 +114,7 @@
         <div class="col-sm-2">
           <div class="form-group">
             <label for="website">Building :</label>
-            <select formControlName="website" class="form-control" (change)="changeWebsite($event)">
+            <select formControlName="website" class="form-control" (change)="changeValue($event)">
               <option>Choose Website</option>
               <option *ngFor="let web of websiteList">{{web}}</option>
             </select>
@@ -127,7 +128,7 @@
         <div class="col-sm-2">
           <div class="form-group">
             <label for="website">Object :</label>
-            <select formControlName="website" class="form-control" (change)="changeWebsite($event)">
+            <select formControlName="website" class="form-control" (change)="changeValue($event)">
               <option>Choose Website</option>
               <option *ngFor="let web of websiteList">{{web}}</option>
             </select>
@@ -140,7 +141,7 @@
         <div class="col-sm-2">
           <div class="form-group">
             <label for="website">Data Field :</label>
-            <select formControlName="website" class="form-control" (change)="changeWebsite($event)">
+            <select formControlName="website" class="form-control" (change)="changeValue($event)">
               <option>Choose Website</option>
               <option *ngFor="let web of websiteList">{{web}}</option>
             </select>
