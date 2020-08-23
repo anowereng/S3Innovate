@@ -4,7 +4,8 @@ import { LineChartComponent } from './charts/line-chart/line-chart.component';
 
 
 const routes: Routes = [
-  { path: 'linechart', pathMatch: 'full', component: LineChartComponent }
+  { path: 'linechart', pathMatch: 'full', component: LineChartComponent },
+  { path: '', pathMatch: 'full', component: LineChartComponent }
 ];
 
 @NgModule({

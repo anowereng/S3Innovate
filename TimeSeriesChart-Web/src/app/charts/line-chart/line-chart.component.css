@@ -1,9 +1,9 @@
-.chart-wrapper, .chartjs-container {
+/* .chart-wrapper, .chartjs-container {
     position: relative;
     height: 40vh;
-    max-width:100%;
+    max-width:200%;
     padding-top: 10px;
-}
+} */
 
 .container {
     padding-top: 100px;
