@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TimeSeriesChart.API.Models;
+using TimeSeriesChart.Data.Models;
 
-namespace TimeSeriesChart.API.services
+namespace TimeSeriesChart.Data.services
 {
     public interface IDataField 
     {

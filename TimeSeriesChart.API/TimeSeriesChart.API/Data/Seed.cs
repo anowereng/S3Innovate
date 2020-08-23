@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using TimeSeriesChart.API.Contexts;
 using TimeSeriesChart.API.Data;
-using TimeSeriesChart.API.Models;
+using TimeSeriesChart.Data.Contexts;
+using TimeSeriesChart.Data.Models;
 
 namespace TimeSeriesChart.API
 {
@@ -13,7 +10,10 @@ namespace TimeSeriesChart.API
     {
         public static async Task Initialize()
         {
-            var context = new TimeseriesContext();
+            var _connectionString = @"Server=Softify-PC2;Database=TimesSeriesDatabase;User Id=sa;Password=007;";
+            var migrationAssemblyName = typeof(Startup).Assembly.FullName;
+            //var connstring = Configuration.GetConnectionString("DefaultConnection");
+            var context = new TimeseriesContext(_connectionString, migrationAssemblyName);
 
             context.Database.EnsureCreated();
 

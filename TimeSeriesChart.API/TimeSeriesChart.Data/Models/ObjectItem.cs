@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TimeSeriesChart.API.Models
+namespace TimeSeriesChart.Data.Models
 {
     public class ObjectItem
     {

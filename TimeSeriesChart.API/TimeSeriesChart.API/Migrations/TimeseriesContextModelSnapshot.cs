@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TimeSeriesChart.API.Contexts;
+using TimeSeriesChart.Data.Contexts;
 
 namespace TimeSeriesChart.API.Migrations
 {
@@ -19,7 +19,7 @@ namespace TimeSeriesChart.API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TimeSeriesChart.API.Models.Building", b =>
+            modelBuilder.Entity("TimeSeriesChart.Data.Models.Building", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,7 @@ namespace TimeSeriesChart.API.Migrations
                     b.ToTable("Buildings");
                 });
 
-            modelBuilder.Entity("TimeSeriesChart.API.Models.DataField", b =>
+            modelBuilder.Entity("TimeSeriesChart.Data.Models.DataField", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -52,7 +52,7 @@ namespace TimeSeriesChart.API.Migrations
                     b.ToTable("DataFields");
                 });
 
-            modelBuilder.Entity("TimeSeriesChart.API.Models.ObjectItem", b =>
+            modelBuilder.Entity("TimeSeriesChart.Data.Models.ObjectItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace TimeSeriesChart.API.Migrations
                     b.ToTable("ObjectItems");
                 });
 
-            modelBuilder.Entity("TimeSeriesChart.API.Models.Reading", b =>
+            modelBuilder.Entity("TimeSeriesChart.Data.Models.Reading", b =>
                 {
                     b.Property<DateTime>("Timestamp")
                         .ValueGeneratedOnAdd()
@@ -97,21 +97,21 @@ namespace TimeSeriesChart.API.Migrations
                     b.ToTable("Readings");
                 });
 
-            modelBuilder.Entity("TimeSeriesChart.API.Models.Reading", b =>
+            modelBuilder.Entity("TimeSeriesChart.Data.Models.Reading", b =>
                 {
-                    b.HasOne("TimeSeriesChart.API.Models.Building", "Building")
+                    b.HasOne("TimeSeriesChart.Data.Models.Building", "Building")
                         .WithMany()
                         .HasForeignKey("BuildingId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TimeSeriesChart.API.Models.DataField", "DataField")
+                    b.HasOne("TimeSeriesChart.Data.Models.DataField", "DataField")
                         .WithMany()
                         .HasForeignKey("DataFieldId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TimeSeriesChart.API.Models.ObjectItem", "Object")
+                    b.HasOne("TimeSeriesChart.Data.Models.ObjectItem", "Object")
                         .WithMany()
                         .HasForeignKey("ObjectId")
                         .OnDelete(DeleteBehavior.Cascade)

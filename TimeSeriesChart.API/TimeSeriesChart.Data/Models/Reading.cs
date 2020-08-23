@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TimeSeriesChart.API.Models
+namespace TimeSeriesChart.Data.Models
 {
     public class Reading
     {

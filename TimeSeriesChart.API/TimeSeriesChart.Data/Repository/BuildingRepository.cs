@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TimeSeriesChart.API.Contexts;
-using TimeSeriesChart.API.Models;
+using TimeSeriesChart.Data.Contexts;
+using TimeSeriesChart.Data.Models;
 
-namespace TimeSeriesChart.API.Repository
+namespace TimeSeriesChart.Data.Repository
 {
     public class BuildingRepository : IBuildingRepository
     {

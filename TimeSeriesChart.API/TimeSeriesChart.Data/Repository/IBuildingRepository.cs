@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using TimeSeriesChart.API.Models;
+using TimeSeriesChart.Data.Models;
 
-namespace TimeSeriesChart.API.Repository
+namespace TimeSeriesChart.Data.Repository
 {
     public interface IBuildingRepository
     {

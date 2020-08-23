@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using TimeSeriesChart.API.Contexts;
+using TimeSeriesChart.Data.Contexts;
+using TimeSeriesChart.Data.Repository;
+using TimeSeriesChart.Data.services;
+using TimeSeriesChart.Data.UnitOfWork;
 
 namespace TimeSeriesChart.API
 {
@@ -27,6 +23,29 @@ namespace TimeSeriesChart.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var migrationAssemblyName = typeof(Startup).Assembly.FullName;
+            var connstring = Configuration.GetConnectionString("DefaultConnection");
+
+            services.
+                         /*For Defendency another assembly */
+                         AddTransient<TimeseriesContext>(x => new TimeseriesContext(connstring, migrationAssemblyName)).
+                         AddTransient<TimeSeriesChartUnitOfWork>(x => new TimeSeriesChartUnitOfWork(connstring, migrationAssemblyName));
+            /* For migraion */
+            services.AddDbContext<TimeseriesContext>(x => x.UseSqlServer(connstring, m => m.MigrationsAssembly(migrationAssemblyName)));
+            /*For Repository and services*/
+            services.
+                     AddTransient<IBuildingRepository, BuildingRepository>().
+                     AddTransient<IReadingService, ReadingService>();
+                     //AddTransient<IStudentRepository, StudentRepository>().
+                     //AddTransient<IStudentService, StudentService>().
+                     //AddTransient<IBookIssueRepository, BookIssueRepository>().
+                     //AddTransient<IBookIssueService, BookIssueService>().
+                     //AddTransient<IBookReturnRepository, BookReturnRepository>().
+                     //AddTransient<IBookReturnService, BookReturnService>().
+                     //AddTransient<IBookFineRepository, BookFineRepository>().
+                     //AddTransient<IBookFineService, BookFineService>();
+
+
             services.AddControllers();
 
             services.AddCors(options =>

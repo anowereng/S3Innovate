@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using TimeSeriesChart.API.Models;
+using TimeSeriesChart.Data.Models;
 
-namespace TimeSeriesChart.API.Contexts
+namespace TimeSeriesChart.Data.Contexts
 {
     public interface ITimeseriesContext
     {
