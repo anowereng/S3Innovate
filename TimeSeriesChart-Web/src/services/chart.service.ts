@@ -10,10 +10,10 @@ export class ChartService {
   constructor(private http: HttpClient) { }
 
   GetAllBuildings() {
-      return this.http.get(this.url + 'buildings')
-        .pipe(catchError(e => {
-          throw new Error(e);
-        }));
+    return this.http.get(this.url + 'buildings')
+      .pipe(catchError(e => {
+        throw new Error(e);
+      }));
   }
   GetAllDataField() {
     return this.http.get(this.url + 'DataField')
@@ -26,5 +26,11 @@ export class ChartService {
       .pipe(catchError(e => {
         throw new Error(e);
       }));
-}
+  }
+  GetAllReadings() {
+    return this.http.get(this.url + 'Readings')
+      .pipe(catchError(e => {
+        throw new Error(e);
+      }));
+  }
 }
