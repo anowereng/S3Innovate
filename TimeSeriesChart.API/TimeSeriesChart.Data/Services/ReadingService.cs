@@ -13,10 +13,24 @@ namespace TimeSeriesChart.Data.services
         {
             _timeseriesUnitOfWork = timeseriesUnitOfWork;
         }
-        public IList<Reading> AllReading()
+        //ReadingsData
+
+
+        public object GetTimeStampValue()  
         {
-            var result = _timeseriesUnitOfWork.ReadingRepository.GetAll().ToList();
+            var result = _timeseriesUnitOfWork.ReadingRepository.GetAll().Select(x => x.value).ToArray();
             return result;
+        }
+        public IList<string> GetTimeStamp()
+        {
+            List<string> labellist = new List<string>();
+
+            for (int i = 0; i <= 24; i++)
+            {
+                labellist.AddRange(new string[] { $" {i} : 00" });
+            }
+
+            return labellist;
         }
     }
 }

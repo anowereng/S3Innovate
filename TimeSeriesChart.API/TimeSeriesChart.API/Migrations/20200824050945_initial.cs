@@ -51,15 +51,14 @@ namespace TimeSeriesChart.API.Migrations
                 name: "Readings",
                 columns: table => new
                 {
-                    Timestamp = table.Column<DateTime>(nullable: false, defaultValueSql: "GetDate()"),
                     BuildingId = table.Column<int>(nullable: false),
                     ObjectId = table.Column<int>(nullable: false),
                     DataFieldId = table.Column<int>(nullable: false),
-                    value = table.Column<float>(nullable: false)
+                    value = table.Column<float>(nullable: false),
+                    Timestamp = table.Column<DateTime>(nullable: false, defaultValueSql: "GetDate()")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Readings", x => x.Timestamp);
                     table.ForeignKey(
                         name: "FK_Readings_Buildings_BuildingId",
                         column: x => x.BuildingId,

@@ -39,7 +39,10 @@ namespace TimeSeriesChart.API
                      AddTransient<IObjectItemRepository, ObjectItemRepository>().
                      AddTransient<IBuildingService, BuildingService>().
                      AddTransient<IDataFieldService, DataFieldService>().
-                     AddTransient<IObjectItemService, ObjectItemService>();
+                     AddTransient<IObjectItemService, ObjectItemService>().
+                     AddTransient<IReadingRepository, ReadingRepository>().
+                     AddTransient<IReadingService, ReadingService>();
+
 
             services.AddControllers()
             .AddJsonOptions(jsonOptions =>

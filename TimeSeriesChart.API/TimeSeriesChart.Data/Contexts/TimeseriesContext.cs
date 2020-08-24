@@ -8,15 +8,6 @@ namespace TimeSeriesChart.Data.Contexts
     {
         private string _connectionstring;
         private string _migrationAssemblyName;
-        //public TimeseriesContext()
-        //{
-        //    _connectionString = @"Server=Softify-PC2;Database=TimesSeriesDatabase;User Id=sa;Password=007;";
-        //}
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(_connectionString);
-        //}
         public TimeseriesContext(string connstring, string migrationAssemblyName)
         {
             _connectionstring = connstring;
@@ -39,9 +30,7 @@ namespace TimeSeriesChart.Data.Contexts
              .Property(s => s.Timestamp)
              .HasDefaultValueSql("GetDate()");
 
-            builder.Entity<Reading>().HasKey(
-               t => new { t.Timestamp}
-           );
+            builder.Entity<Reading>().HasNoKey();
 
         }
         public DbSet<Building> Buildings { get; set; }

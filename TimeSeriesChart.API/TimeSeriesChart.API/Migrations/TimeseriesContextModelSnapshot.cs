@@ -69,11 +69,6 @@ namespace TimeSeriesChart.API.Migrations
 
             modelBuilder.Entity("TimeSeriesChart.Data.Models.Reading", b =>
                 {
-                    b.Property<DateTime>("Timestamp")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GetDate()");
-
                     b.Property<int>("BuildingId")
                         .HasColumnType("int");
 
@@ -83,10 +78,13 @@ namespace TimeSeriesChart.API.Migrations
                     b.Property<int>("ObjectId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Timestamp")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GetDate()");
+
                     b.Property<float>("value")
                         .HasColumnType("real");
-
-                    b.HasKey("Timestamp");
 
                     b.HasIndex("BuildingId");
 
