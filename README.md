@@ -1,3 +1,3 @@
-/*N.B : connection string change pc name , and PM update command */
+#### N.B : check connectionstring and finally PM update command 
 
 # PM> update-database
