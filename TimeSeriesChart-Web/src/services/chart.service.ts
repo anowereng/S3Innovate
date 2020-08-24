@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { catchError, finalize } from 'rxjs/operators';
+import { ReadingsModel } from 'src/app/_models/ReadingsModel';
 @Injectable({
   providedIn: 'root'
 })
@@ -28,9 +29,10 @@ export class ChartService {
       }));
   }
   GetAllReadings() {
-    return this.http.get(this.url + 'Readings')
+    return this.http.get<ReadingsModel>(this.url + 'Readings')
       .pipe(catchError(e => {
         throw new Error(e);
       }));
   }
 }
+

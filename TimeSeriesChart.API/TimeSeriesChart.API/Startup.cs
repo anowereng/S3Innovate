@@ -41,17 +41,20 @@ namespace TimeSeriesChart.API
                      AddTransient<IDataFieldService, DataFieldService>().
                      AddTransient<IObjectItemService, ObjectItemService>();
 
-            services.AddControllers();
+            services.AddControllers()
+            .AddJsonOptions(jsonOptions =>
+            {
+                jsonOptions.JsonSerializerOptions.PropertyNamingPolicy = null;
+            });
 
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                   builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
+                    builder => builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
             });
-         
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,7 +68,7 @@ namespace TimeSeriesChart.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
             app.UseHttpsRedirection();
 
             app.UseRouting();

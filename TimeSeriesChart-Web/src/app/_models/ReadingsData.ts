@@ -1,5 +1,5 @@
 export interface ReadingsData {
-    value: Array<number>;
+    data: Array<number>;
     label: string;
 }
 

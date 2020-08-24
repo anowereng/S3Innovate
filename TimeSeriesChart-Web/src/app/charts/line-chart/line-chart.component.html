@@ -2,178 +2,51 @@
 
   <form [formGroup]="form" (ngSubmit)="search()">
       <div class="form-row">
-        <div class="col-2">
+        <div class="col-md-2 col-xs-4">
           <label for="building">Building :</label>
           
           <select formControlName="building" id="building" class="form-control" (change)="changeValue($event)">
             <option value=""> select buildings </option>
-            <option *ngFor="let c of buildings" [ngValue]="c">{{c.name}}</option>
+            <option *ngFor="let c of buildings" [ngValue]="c">{{c.Name}}</option>
           </select>
         </div>
 
-        <div class="col-2">
+        <div class="col-md-2 col-xs-4">
           <label for="object">Object :</label>
           <select formControlName="object" class="form-control" (change)="changeValue($event)">
             <option value=""> select object </option>
-            <option *ngFor="let c of objectitem" [ngValue]="c">{{c.name}}</option>
+            <option *ngFor="let c of objectitem" [ngValue]="c">{{c.Name}}</option>
           </select>
         </div>
 
-        <div class="col-2">
+        <div class="col-md-2 col-xs-4">
           <label for="datafield">Data Field :</label>
           <select formControlName="datafield" class="form-control" (change)="changeValue($event)">
             <option value=""> select datafield </option>
-            <option *ngFor="let c of datafield" [ngValue]="c">{{c.name}}</option>
+            <option *ngFor="let c of datafield" [ngValue]="c">{{c.Name}}</option>
           </select>
         </div>
 
-        <div class="col-2">
+        <div class="col-md-2 col-xs-4">
           <label for="datafield">Date From :</label>
           <input type="text" placeholder="Choose From date" class="form-control" bsDatepicker formControlName="dtfrom">
         </div>
-        <div class="col-2">
+        <div class="col-md-2 col-xs-4">
           <label for="datafield">Data To :</label>
           <input type="text" placeholder="Choose To date" class="form-control" bsDatepicker formControlName="dtto">
         </div>
-        <div class="col-2 mt-4">
+        <div class="col-md-2 col-xs-4 mt-4">
           <label for="sdf"></label>
           <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Search</button>
         </div>
       </div>
-
   </form>
-  <!-- <div class="row" *ngIf="readingModel">  
-    <div style="display: block">  
-        <canvas baseChart  
-                [datasets]="readingModel.ReadingsModelList"  
-                [labels]="readingModel.chartLabels"  
-                [options]="chartOptions"  
-                [legend]="chartLegend"  
-                [chartType]="chartType"></canvas>  
-    </div>  
-</div>   -->
-      <!-- <div class="chartjs-container mt-4">
-        <canvas baseChart height="100" legend="true" [datasets]="lineChartData" [labels]="lineChartLabels"
-          [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
-          [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+
+      <div class="chartjs-container mt-4" *ngIf="readingModel">
+        <canvas baseChart height="100" legend="true" [datasets]="readingModel.ReadingsModelList" [labels]="readingModel.Label"
+          [options]="chartOptions" [legend]="chartLegend" [chartType]="chartType"
+        >
         </canvas>
       </div>
-  -->
 
-
-
-
-  <!-- <form> [formGroup]="form" (ngSubmit)="submit()" -->
-  <!-- <div class="row">
-
-      <div class="form-row">
-        <div class="col-2">
-          <label for="building">Building :</label>
-          <select formControlName="building" class="form-control" (change)="changeValue($event)">
-            <option>Choose Building</option>
-            <option *ngFor="let web of websiteList">{{web}}</option>
-          </select>
-
-        </div>
-
-        <div class="col-2">
-          <label for="object">Object :</label>
-          <select formControlName="object" class="form-control" (change)="changeValue($event)">
-            <option>Choose Object</option>
-            <option *ngFor="let web of websiteList">{{web}}</option>
-          </select>
-
-        </div>
-        <div class="col-2">
-          <label for="datafield">Data Field :</label>
-          <select formControlName="datafield" class="form-control" (change)="changeValue($event)">
-            <option>Choose Data Field</option>
-            <option *ngFor="let web of websiteList">{{web}}</option>
-          </select>
-
-        </div>
-      </div>
-
-  </div> -->
-  <!--   
-  <div class="row">
-    <div class="col-xs-2">
-      <input type="text" placeholder="Choose From date" class="form-control" bsDatepicker formControlName="dtfrom">
-    </div>
-    <div class="col-xs-2">
-      <input type="text" placeholder="Choose To date" class="form-control" bsDatepicker formControlName="dtto">
-    </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
-  </div>
-
-  <div class="row">
-    <div style="display: block;">
-      <div class="chartjs-container">
-        <canvas baseChart height="100" legend="true" [datasets]="lineChartData" [labels]="lineChartLabels"
-          [options]="lineChartOptions" [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType"
-          [plugins]="lineChartPlugins" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
-        </canvas>
-      </div>
-    </div>
-  </div> -->
-  <!-- </form> -->
-
-  <!-- <div class="col-sm-12">
-      <form [formGroup]="form" (ngSubmit)="submit()">
-        <div class="col-sm-2">
-          <div class="form-group">
-            <label for="website">Building :</label>
-            <select formControlName="website" class="form-control" (change)="changeValue($event)">
-              <option>Choose Website</option>
-              <option *ngFor="let web of websiteList">{{web}}</option>
-            </select>
-
-            <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
-              <div *ngIf="f.website.errors.required">Name is required.</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-2">
-          <div class="form-group">
-            <label for="website">Object :</label>
-            <select formControlName="website" class="form-control" (change)="changeValue($event)">
-              <option>Choose Website</option>
-              <option *ngFor="let web of websiteList">{{web}}</option>
-            </select>
-
-            <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
-              <div *ngIf="f.website.errors.required">Name is required.</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="form-group">
-            <label for="website">Data Field :</label>
-            <select formControlName="website" class="form-control" (change)="changeValue($event)">
-              <option>Choose Website</option>
-              <option *ngFor="let web of websiteList">{{web}}</option>
-            </select>
-
-            <div *ngIf="f.website.touched && f.website.invalid" class="alert alert-danger">
-              <div *ngIf="f.website.errors.required">Name is required.</div>
-            </div>
-          </div>
-        </div>
-
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
-      </form>
-
-    </div> -->
-
-  <!-- 
-  <div class="col-xs-12">
-    <input type="text" placeholder="Choose date" class="form-control" bsDatepicker>
-  </div>
-
-  <button type="button" class="btn btn-primary">Load</button>
-  <div class="col-xs-12">
-    <input type="text" placeholder="Choose date" class="form-control" bsDatepicker bsDaterangepicker
-      [bsConfig]="{ isAnimated: true }">
-  </div> -->
 </div>
