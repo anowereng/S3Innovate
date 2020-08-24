@@ -7,7 +7,7 @@ namespace TimeSeriesChart.API.viewmodel
 {
     public class ReadingsModel
     {
-            public IList<int> data { get; set; }
+            public IList<ReadingsData> data { get; set; }
             public string[] label { get; set; }
     }
 }

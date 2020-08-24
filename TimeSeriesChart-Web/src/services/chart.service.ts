@@ -28,8 +28,8 @@ export class ChartService {
         throw new Error(e);
       }));
   }
-  GetAllReadings() {
-    return this.http.get<ReadingsModel>(this.url + 'Readings')
+  GetAllReadings( objectid : any, buildid: any, datafieldid: any,  dtfrom:any, dtto:any) {
+    return this.http.get<ReadingsModel>(this.url + `Readings?objectid=${objectid}&buildid=${buildid}&datafieldid=${datafieldid}&dtfrom=${dtfrom}&dtto=${dtto}`)
       .pipe(catchError(e => {
         throw new Error(e);
       }));

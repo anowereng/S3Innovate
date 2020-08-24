@@ -20,41 +20,27 @@ namespace TimeSeriesChart.API.Controllers
             _readingService = readingService;
         }
 
-        [HttpGet]
-        public ActionResult<IList<ReadingsModel>> GetTotalReadings()
+       [HttpGet]
+        public ActionResult<ReadingsModel> GetTotalReadings(int objectid, int buildid, int datafieldid, DateTime dtfrom, DateTime dtto)
         {
-            //var datalist = new List<ReadingsData>();
-            //datalist.Add(new ReadingsData { label = DateTime.Now.ToString("dd-MMM-yyyy"), data = new int[] { 6, 19, 6, 21, 7, 15 } });
-            //datalist.Add(new ReadingsData { label = DateTime.Now.ToString("dd-MMM-yyyy"), data = new int[] { -8, -6, -1, 2, -7, 6 } });
-            //datalist.Add(new ReadingsData { label = DateTime.Now.ToString("dd-MMM-yyyy"), data = new int[] { -4, 3, -5, -1, -6, -3 } });
-            //datalist.Add(new ReadingsData { label = DateTime.Now.ToString("dd-MMM-yyyy"), data = new int[] { 6, 2, 4, 6, 7, 7 } });
+            var result = new List<ReadingsData>();
+            var datalist = _readingService.GetTimeStampValue(objectid, buildid,  datafieldid, Convert.ToDateTime(dtfrom), Convert.ToDateTime(dtto)).ToList();
+            if (datalist.Count > 0) {
+                var labellist = _readingService.GetTimeStampLabel().ToList();
 
-            //List<string> labellist = new List<string>();
-
-            //for (int i = 0; i <= 24; i++)
-            //{
-            //    labellist.AddRange(new string[] { $" {i} : 00" });
-            //}
-
-            var datalist = _readingService.GetTimeStampValue();
-            var labellist = _readingService.GetTimeStamp();
-
-            return Ok(new ReadingsModel { data = (IList<int>)datalist, label = labellist.ToArray() });
+                foreach (Reading x in datalist)
+                {
+                    var data = datalist.Where(z => z.Timestamp.ToString("dd-MMM-yyyy") == x.Timestamp.ToString("dd-MMM-yyyy")).Select(d => d.value).ToArray();
+                    result.Add(new ReadingsData { label = x.Timestamp.ToString("dd-MMM-yyyy"), data = data });
+                }
+                return Ok(new ReadingsModel { data = result, label = labellist.ToArray() });
+            }
+            else
+            {
+                return BadRequest("Reading data are empty !!");
+            }
+           
         }
-
-
-        //public class ReadingsData
-        //{
-        //    public int[] data { get; set; }
-        //    public string label { get; set; }
-        //}
-
-        //public class ReadingsModel
-        //{
-        //    public List<ReadingsData> ReadingsModelList { get; set; }
-        //    public string[] Label { get; set; }
-        //}
-
     }
 
 }

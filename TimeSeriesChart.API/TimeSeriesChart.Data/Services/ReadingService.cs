@@ -13,15 +13,12 @@ namespace TimeSeriesChart.Data.services
         {
             _timeseriesUnitOfWork = timeseriesUnitOfWork;
         }
-        //ReadingsData
-
-
-        public object GetTimeStampValue()  
+        public IList<Reading> GetTimeStampValue(int objectid, int buildingid, int datafieldid, DateTime dtfrom, DateTime dtto)  
         {
-            var result = _timeseriesUnitOfWork.ReadingRepository.GetAll().Select(x => x.value).ToArray();
+            var result = _timeseriesUnitOfWork.ReadingRepository.GetAll().Where(x=>x.ObjectId==objectid && x.BuildingId== buildingid && (x.Timestamp > dtfrom && x.Timestamp < dtto)).ToList();
             return result;
         }
-        public IList<string> GetTimeStamp()
+        public IList<string> GetTimeStampLabel()
         {
             List<string> labellist = new List<string>();
 

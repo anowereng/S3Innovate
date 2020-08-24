@@ -1,6 +1,6 @@
 import { ReadingsData } from './ReadingsData';
 
 export interface ReadingsModel {
-    ReadingsModelList: ReadingsData[];
-    Label: string[];
+    data: ReadingsData[];
+    label: string[];
 }

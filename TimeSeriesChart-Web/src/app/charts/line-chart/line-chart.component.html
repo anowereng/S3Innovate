@@ -1,52 +1,51 @@
 <div class="container">
 
   <form [formGroup]="form" (ngSubmit)="search()">
-      <div class="form-row">
-        <div class="col-md-2 col-xs-4">
-          <label for="building">Building :</label>
-          
-          <select formControlName="building" id="building" class="form-control" (change)="changeValue($event)">
-            <option value=""> select buildings </option>
-            <option *ngFor="let c of buildings" [ngValue]="c">{{c.Name}}</option>
-          </select>
-        </div>
+    <div class="form-row">
+      <div class="col-md-2 col-xs-4">
+        <label for="building">Building :</label>
 
-        <div class="col-md-2 col-xs-4">
-          <label for="object">Object :</label>
-          <select formControlName="object" class="form-control" (change)="changeValue($event)">
-            <option value=""> select object </option>
-            <option *ngFor="let c of objectitem" [ngValue]="c">{{c.Name}}</option>
-          </select>
-        </div>
-
-        <div class="col-md-2 col-xs-4">
-          <label for="datafield">Data Field :</label>
-          <select formControlName="datafield" class="form-control" (change)="changeValue($event)">
-            <option value=""> select datafield </option>
-            <option *ngFor="let c of datafield" [ngValue]="c">{{c.Name}}</option>
-          </select>
-        </div>
-
-        <div class="col-md-2 col-xs-4">
-          <label for="datafield">Date From :</label>
-          <input type="text" placeholder="Choose From date" class="form-control" bsDatepicker formControlName="dtfrom">
-        </div>
-        <div class="col-md-2 col-xs-4">
-          <label for="datafield">Data To :</label>
-          <input type="text" placeholder="Choose To date" class="form-control" bsDatepicker formControlName="dtto">
-        </div>
-        <div class="col-md-2 col-xs-4 mt-4">
-          <label for="sdf"></label>
-          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Search</button>
-        </div>
+        <select formControlName="building" id="building" class="form-control" (change)="changeValue($event)">
+          <option value=""> select buildings </option>
+          <option *ngFor="let c of buildings" [ngValue]="c">{{c.Name}}</option>
+        </select>
       </div>
+
+      <div class="col-md-2 col-xs-4">
+        <label for="object">Object :</label>
+        <select formControlName="object" class="form-control" (change)="changeValue($event)">
+          <option value=""> select object </option>
+          <option *ngFor="let c of objectitem" [ngValue]="c">{{c.Name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 col-xs-4">
+        <label for="datafield">Data Field :</label>
+        <select formControlName="datafield" class="form-control" (change)="changeValue($event)">
+          <option value=""> select datafield </option>
+          <option *ngFor="let c of datafield" [ngValue]="c">{{c.Name}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2 col-xs-4">
+        <label for="datafield">Date From :</label>
+        <input type="text" placeholder="Choose From date" class="form-control" bsDatepicker formControlName="dtfrom">
+      </div>
+      <div class="col-md-2 col-xs-4">
+        <label for="datafield">Data To :</label>
+        <input type="text" placeholder="Choose To date" class="form-control" bsDatepicker formControlName="dtto">
+      </div>
+      <div class="col-md-2 col-xs-4 mt-4">
+        <label for="sdf"></label>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Search</button>
+      </div>
+    </div>
   </form>
 
-      <div class="chartjs-container mt-4" *ngIf="readingModel">
-        <canvas baseChart height="100" legend="true" [datasets]="readingModel.ReadingsModelList" [labels]="readingModel.Label"
-          [options]="chartOptions" [legend]="chartLegend" [chartType]="chartType"
-        >
-        </canvas>
-      </div>
+  <div class="chartjs-container mt-4" *ngIf="readingModel">
+    <canvas baseChart height="100" legend="true" [datasets]="readingModel.data"
+      [labels]="readingModel.label" [options]="chartOptions" [legend]="chartLegend" [chartType]="chartType">
+    </canvas>
+  </div>
 
 </div>

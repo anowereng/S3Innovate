@@ -8,7 +8,7 @@ namespace TimeSeriesChart.Data.services
 {
     public interface IReadingService
     {
-        object GetTimeStampValue();
-        IList<string> GetTimeStamp();
+        IList<Reading> GetTimeStampValue(int objectid, int buildings, int datafieldid, DateTime dtfrom, DateTime dtto);
+        IList<string> GetTimeStampLabel();
     }
 }
